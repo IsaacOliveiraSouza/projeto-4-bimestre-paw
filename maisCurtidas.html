@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mais curtidas</title>
+    <script>
+        function ranque(){
+            let url = "http://localhost:8080/maisCurtidas"
+            var requi = new XMLHttpRequest()
+            requi.open("GET", url, false)
+            requi.send()
+            var res = JSON.parse(requi.responseText)
+            var div = document.getElementById("ranque")
+            var info = res.info
+             info.map((json, indice)=>{
+                div.innerHTML += json.msg + " curtidas: "+json.likes+"<br>"
+            })
+        }
+    </script>
+</head>
+<body onload="ranque()">
+    <div id="ranque"></div>
+</body>
+</html>
