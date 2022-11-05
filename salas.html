@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>salas</title>
+    <script>
+        function mostrar(){
+            let url = "http://localhost:8080/mostrarMsg"
+            let req = new XMLHttpRequest()
+            req.open("GET", url, false)
+            req.send()
+            let res = JSON.parse(req.responseText)
+            let div = document.getElementById("msgs")
+            let info = res.info
+            div.innerHTML=""
+            info.map((json, indice)=>{
+                div.innerHTML += "<u><font color='#FFF'>" + json.nome + "</font></u>: "
+                div.innerHTML +="<fieldset>"+ json.msg + "</fieldset>  <u><font color='#FFF'>- "+json.data+"</font></u><br>"
+                div.innerHTML += "<a href=http://localhost:8080/curtir/"+ json.curtida+"><button id='btn_curtir'>Curtir</button></a><br>"
+            })
+        }
+    </script>
+<style type="text/css">
+    body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(to right, #100929 , rgb(21, 6, 105));
+  }
+
+  #btn_curtir{
+    background-image: linear-gradient(to right, #ac0808 , rgb(57, 33, 190));
+    border: none;
+    color: #FFF;
+    padding: 0.5% 0.5%;
+    border-radius: 10px;
+  }
+
+  fieldset{
+        display:inline-flex;
+        width: 10%;
+        height: 3%;
+        padding: 1% 1%;
+        border-radius: 15px;
+        background-color: #FFF;
+    }
+  .cabecalho {
+    width: 100%;
+    text-align: center;
+  }
+  
+  #msgs u{
+    text-decoration: #FFF;
+  }
+
+  h1 {
+    background-color: #100929;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 15px;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    font-family: arial, sans-serif;
+    position: center;
+  }
+
+  
+  .rodape {
+    background-color: #ffffff;
+    padding: 30px 0;
+    padding-left: 5%;
+  }
+  .rodape h3,
+  .rodape p {
+    margin-top: 0;
+    color: #fff;
+  }
+  
+
+.cadastro{
+    border-radius: 30px;
+    margin: auto;
+    text-align: center;
+    height: 400px;
+    width: 300px;
+    background-image: linear-gradient(#372ba7 ,#e4e4e4);
+  }
+
+  .input_caixa{
+    border: none;
+    /* outiline: none; 
+    maring-top: 30px; */
+    padding: 1% 1%;
+    border-radius: 15px;
+    
+  }
+  
+  .btn_in{
+    background-image: linear-gradient(to right, #ac0808 , rgb(57, 33, 190));
+    border: none;
+    color: #FFF;
+    padding: 0.5% 0.5%;
+    border-radius: 10px;
+  }
+
+  .btn_cadastro{
+    background-image: linear-gradient(to right, #5b00d3 , rgb(21, 6, 105));
+    border: none;
+    color: #FFF;
+    padding: 3% 1%;
+    border-radius: 12px;
+  }
+
+  #h_cor{
+    margin-top: 5px;
+    text-align:center;
+    font-family: Arial;
+    color: #FFF;
+  }
+  
+  #p_cor{
+    text-align:center;
+    font-family: Arial;
+    color: #FFF;
+  }
+
+  p{
+    color:rgb(255, 255, 255) ;
+    font-family: Arial;
+  }
+  
+  h3, h2{
+    color:rgb(255, 255, 255) ;
+  }
+
+  #botaoCurtidas{
+    margin-left: 84%;
+}
+
+</style>
+</head>
+<body onload="mostrar()">
+    <form action="/enviarMsg" method="get">
+        <div clas="enviarMensagens" align="center">
+            <br><br><input type="text" placeholder="Mensagem" id="msg" name="msg" class="input_caixa" >
+            <button onclick="mostrar()" class="btn_in" >Enviar</button>
+        </div>
+        
+    </form>
+    <div id="msgs">
+
+    </div>
+</body>
+</html>

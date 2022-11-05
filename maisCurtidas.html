@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mais curtidas</title>
+    <script>
+        function ranque(){
+            let url = "http://localhost:8080/maisCurtidas"
+            var requi = new XMLHttpRequest()
+            requi.open("GET", url, false)
+            requi.send()
+            var res = JSON.parse(requi.responseText)
+            var div = document.getElementById("ranque")
+            var info = res.info
+             info.map((json, indice)=>{
+                div.innerHTML +="<fieldset><ul><li>"+ json.msg + " - curtidas: "+json.likes+"<br></fieldset>"+"<ul>"
+            })
+        }
+    </script>
+    <style>
+            body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(to right, #100929 , rgb(21, 6, 105));
+  }
+
+
+  #btn_curtir{
+    background-image: linear-gradient(to right, #ac0808 , rgb(57, 33, 190));
+    border: none;
+    color: #FFF;
+    padding: 0.5% 0.5%;
+    border-radius: 10px;
+  }
+
+  fieldset{
+        display:inline-flex;
+        width: 25%;
+        height: 3%;
+        padding: 0.5% 0.5%;
+        border-radius: 15px;
+        background-color: #FFF;
+    }
+
+  .cabecalho {
+    width: 100%;
+    text-align: center;
+  }
+  
+  #msgs u{
+    text-decoration: #FFF;
+  }
+
+  h1 {
+    background-color: #100929;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 15px;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    font-family: arial, sans-serif;
+    position: center;
+  }
+
+  
+  .rodape {
+    background-color: #ffffff;
+    padding: 30px 0;
+    padding-left: 5%;
+  }
+  .rodape h3,
+  .rodape p {
+    margin-top: 0;
+    color: #fff;
+  }
+  
+
+.cadastro{
+    border-radius: 30px;
+    margin: auto;
+    text-align: center;
+    height: 400px;
+    width: 300px;
+    background-image: linear-gradient(#372ba7 ,#e4e4e4);
+  }
+
+  .input_caixa{
+    border: none;
+    /* outiline: none; 
+    maring-top: 30px; */
+    padding: 1% 1%;
+    border-radius: 15px;
+    
+  }
+  
+  .btn_in{
+    background-image: linear-gradient(to right, #ac0808 , rgb(57, 33, 190));
+    border: none;
+    color: #FFF;
+    padding: 0.5% 0.5%;
+    border-radius: 10px;
+  }
+
+  .btn_cadastro{
+    background-image: linear-gradient(to right, #5b00d3 , rgb(21, 6, 105));
+    border: none;
+    color: #FFF;
+    padding: 3% 1%;
+    border-radius: 12px;
+  }
+
+  #h_cor{
+    margin-top: 5px;
+    text-align:center;
+    font-family: Arial;
+    color: #FFF;
+  }
+  
+  #p_cor{
+    text-align:center;
+    font-family: Arial;
+    color: #FFF;
+  }
+
+  p{
+    color:rgb(255, 255, 255) ;
+    font-family: Arial;
+  }
+  
+  h3, h2{
+    color:rgb(255, 255, 255) ;
+  }
+
+  #botaoCurtidas{
+    margin-left: 84%;
+}
+
+    </style>
+</head>
+<body onload="ranque()">
+    <h2 align="center">Mensagens mais curtidas:</h2><br><br>
+    <div id="ranque" align="center"></div>
+</body>
+</html>

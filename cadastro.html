@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<style  type="text/css">
+    body {
+margin: 0;
+font-family: 'Roboto', sans-serif;
+background-color: #100929;
+}
+
+.cabecalho {
+width: 100%;
+text-align: center;
+}
+
+h1 {
+background-color: #100929;
+text-align: center;
+font-size: 30px;
+padding-top: 15px;
+color: rgb(255, 255, 255);
+margin: 0;
+font-family: arial, sans-serif;
+position: center;
+}
+
+
+.rodape {
+background-color: #ffffff;
+padding: 30px 0;
+padding-left: 5%;
+}
+.rodape h3,
+.rodape p {
+margin-top: 0;
+color: #fff;
+}
+
+.cadastro{
+border-radius: 30px;
+margin: auto;
+text-align: center;
+height: 400px;
+width: 300px;
+background-image: linear-gradient(#372ba7 ,#e4e4e4);
+}
+
+.input_caixa{
+border: none;
+/* outiline: none; 
+maring-top: 30px; */
+padding: 2% 7%;
+border-radius: 15px;
+
+}
+
+.btn_in{
+background-image: linear-gradient(to right, #5b00d3 , rgb(21, 6, 105));
+border: none;
+color: #FFF;
+padding: 3% 8%;
+border-radius: 12px;
+}
+
+.btn_cadastro{
+background-image: linear-gradient(to right, #5b00d3 , rgb(21, 6, 105));
+border: none;
+color: #FFF;
+padding: 3% 1%;
+border-radius: 12px;
+}
+
+#h_cor{
+margin-top: 5px;
+text-align:center;
+font-family: Arial;
+color: #FFF;
+}
+
+#p_cor{
+text-align:center;
+font-family: Arial;
+color: #FFF;
+}
+
+p{
+color:rgb(255, 255, 255) ;
+font-family: Arial;
+}
+
+
+</style>
+<body>
+    <header class="cabecalho">
+        <br><br><br>
+        <h1>Cadastro</h1><br>
+    </header>
+<div class="cadastro" align = "center">
+    <form action="/cadastrarUsuario" method="get" class="login">
+        <p>
+            <br><br><br><br><br><label>Nome:</label>
+            <input type="text" name="nome" id="nome" placeholder="Nome Usuario:" class="input_caixa" required >
+        </p>
+        <p>
+            <label>Email: </label>
+            <input type="email" name="email" id="email" placeholder="Email:" class="input_caixa" required>
+        </p>
+        <p>
+            <label>Senha: </label>
+            <input type="password" name="senha" id="senha" placeholder="Senha:" class="input_caixa" required>
+        </p>
+        <p>
+            <input type="submit" value="cadastrar" class="btn_in">
+        </p>
+    </form>
+</body>
+</html>
